@@ -6,7 +6,7 @@
             <div class="col-lg-5 col-md-7 col-sm-9">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Sign up</h3>
+                        <h3 class="card-title">ユーザー登録</h3>
                         {% if form.non_field_errors %}
                             <div class="alert alert-danger alert-text" role="alert">
                                 {% for error in form.non_field_errors %}
@@ -14,7 +14,7 @@
                                 {% endfor %}
                             </div>
                         {% endif %}
-                        <form method="POST" action="{% url 'accounts:signup' %}" class="auth-form" novalidate>
+                        <form method="POST" action="{% url 'accounts:signup' %}" class="auth-form">
                             {% csrf_token %}
                             {% for field in form %}
                             <div>
@@ -33,7 +33,7 @@
                         </form>
                     </div>
                     <div class="card-footer text-muted text-center">
-                        Already have an account? <a href="{% url 'accounts:login' %}">Log in</a>
+                        アカウントをお持ちの方はこちら <a href="{% url 'accounts:login' %}">ログイン</a>
                     </div>
                 </div>
             </div>

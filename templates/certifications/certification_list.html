@@ -12,7 +12,18 @@
   <div class="container-fluid h-100">
     <div class="row">
       <div class="col-2 bg-light">
-         <a href="{% url 'accounts:login' %}">ログインはこちらから</a>
+        <div class="container mt-3">
+        {% if user.is_authenticated %}
+         <a style="display:block;" href="{% url 'accounts:logout' %}">ログアウト</a>
+         <a style="display:block;" href="{% url 'certifications:experience_form' %}">合格体験記を書く</a>
+        {% else %}
+        <p>合格体験記を見るには右の検索欄に資格名を入力して🔍ボタンを押してください(資格名は一部でも可)</p>
+         合格体験記を書くにはユーザー登録が必要です
+         <a class="mb-3" style="display:block;" href="{% url 'accounts:signup' %}">ユーザー登録</a>
+         既に登録済みの方はこちらからログインしてください
+         <a style="display:block;" href="{% url 'accounts:login' %}">ログイン</a>
+        {% endif %}
+        </div>
       </div>
     <div class="offset-2 col-6 offset-2">
       <div class="certification mt-5">
